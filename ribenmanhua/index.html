@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本漫画 无翼 - 深度解析与阅读指南</title>
+    <meta name="description" content="日本漫画 无翼专题，提供无翼鸟主题漫画的深度解析、分类导读、阅读指南及行业趋势分析。了解无翼漫画的独特叙事风格与代表作品。">
+    <meta name="keywords" content="日本漫画, 无翼, 漫画分类, 阅读指南, 漫画趋势">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-secondary: #596b82;
+            --accent-color: #e67e22;
+            --border-color: #e9ecef;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1rem var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 2rem var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f1f3f5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+        }
+
+        .card-img-placeholder {
+            height: 180px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .card-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #868e96;
+            border-top: 1px solid #f1f3f5;
+            padding-top: 0.8rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rank-list {
+            list-style: none;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f1f3f5;
+        }
+
+        .rank-number {
+            width: 24px;
+            height: 24px;
+            background-color: #f1f3f5;
+            color: var(--text-secondary);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            margin-right: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rank-item:nth-child(1) .rank-number { background-color: #ffc107; color: #fff; }
+        .rank-item:nth-child(2) .rank-number { background-color: #e9ecef; color: #495057; }
+        .rank-item:nth-child(3) .rank-number { background-color: #e9ecef; color: #495057; }
+
+        .rank-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Guide Section */
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">漫画<span>指南</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">阅读技巧</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品或作者...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>日本漫画 无翼</h1>
+            <p>探索“无翼”题材的独特魅力。这里汇集了关于无翼鸟主题漫画的深度解析、风格分类及精选推荐，帮助您更好地理解这一特殊题材。</p>
+            <a href="#guide" class="cta-btn">开始探索</a>
+        </section>
+
+        <div class="container">
+            <!-- Left Column -->
+            <div class="main-content">
+                
+                <!-- Tag Cloud -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门标签</h2>
+                    </div>
+                    <div class="tag-cloud">
+                        <span class="tag">剧情向</span>
+                        <span class="tag">日常系</span>
+                        <span class="tag">情感治愈</span>
+                        <span class="tag">成长</span>
+                        <span class="tag">生活流</span>
+                        <span class="tag">纯爱</span>
+                        <span class="tag">校园</span>
+                        <span class="tag">职场</span>
+                        <span class="tag">悬疑</span>
+                        <span class="tag">无翼鸟</span>
+                    </div>
+                </section>
+
+                <!-- Featured Articles -->
+                <section id="guide">
+                    <div class="section-header">
+                        <h2 class="section-title">深度导读</h2>
+                        <a href="#" style="font-size:0.9rem; color:var(--accent-color);">查看更多 &rarr;</a>
+                    </div>
+                    <div class="article-grid">
+                        <article class="article-card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/manga1/400/250" alt="漫画封面示例">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-category">风格解析</span>
+                                <h3 class="card-title">理解“无翼”漫画的叙事美学</h3>
+                                <p class="card-excerpt">不同于热血战斗或魔法幻想，“无翼”漫画往往侧重于人物内心世界的细腻刻画与现实主义题材的探讨...</p>
+                                <div class="card-footer">
+                                    <span>2023-10-24</span>
+                                    <span>阅读时间: 5分钟</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/manga2/400/250" alt="漫画封面示例">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-category">分类指南</span>
+                                <h3 class="card-title">如何快速找到优质无翼作品</h3>
+                                <p class="card-excerpt">面对海量的作品，本指南将教你如何通过标签筛选、作者风格识别以及社区评分来锁定高质量读物。</p>
+                                <div class="card-footer">
+                                    <span>2023-10-22</span>
+                                    <span>阅读时间: 3分钟</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="article-card">
+                            <div class="card-img-placeholder">
+                                <img src="https://picsum.photos/seed/manga3/400/250" alt="漫画封面示例">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-category">社区讨论</span>
+                                <h3 class="card-title">无翼题材中的经典角色分析</h3>
+                                <p class="card-excerpt">深入剖析几部经典作品中的代表性角色，探讨他们在“无翼”设定下的成长弧光与情感共鸣。</p>
+                                <div class="card-footer">
+                                    <span>2023-10-20</span>
+                                    <span>阅读时间: 7分钟</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">常见问题 (FAQ)</h2>
+                    </div>
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>“无翼”漫画是指没有翅膀的角色吗？</h4>
+                                <p>不一定。这个词通常是一个隐喻或特定分类术语，指代那些侧重于现实生活、内心挣扎或缺乏超自然元素的漫画作品，而非字面意义上的“无翼”。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>这类漫画适合所有年龄段的读者吗？</h4>
+                                <p>大多数“无翼”题材的日本漫画属于大众向或青年向，内容贴近现实，通常没有过于暴力的画面，但部分作品可能涉及复杂的成人情感或职场伦理。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>在哪里可以合法阅读这些作品？</h4>
+                                <p>建议通过各大正版漫画平台的官方渠道进行阅读，支持原作者及出版社，以获得最佳的阅读体验和更新保障。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column Sidebar -->
+            <aside class="sidebar">
+                <!-- Reading Guide Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">阅读指南</h3>
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-number" style="background-color:#34495e;">1</div>
+                            <div class="step-content">
+                                <h4>选择平台</h4>
+                                <p>登录正版漫画APP或网站。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number" style="background-color:#34495e;">2</div>
+                            <div class="step-content">
+                                <h4>筛选标签</h4>
+                                <p>使用“无翼”或“日常”标签筛选。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number" style="background-color:#34495e;">3</div>
+                            <div class="step-content">
+                                <h4>开始阅读</h4>
+                                <p>享受细腻的剧情与画风。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hot Ranking Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">热门推荐</h3>
+                    <ul class="rank-list">
+                        <li class="rank-item">
+                            <span class="rank-number">1</span>
+                            <span class="rank-title">《夏日之庭》</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-number">2</span>
+                            <span class="rank-title">《声之形》</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-number">3</span>
+                            <span class="rank-title">《海街日记》</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-number">4</span>
+                            <span class="rank-title">《四月是你的谎言》</span>
+                        </li>
+                        <li class="rank-item">
+                            <span class="rank-number">5</span>
+                            <span class="rank-title">《未闻花名》</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div class="sidebar-widget" style="background-color: #f1f3f5; text-align: center; padding: 2rem 1rem; border: 1px dashed #ced4da;">
+                    <p style="color: #adb5bd; font-size: 0.9rem;">广告位 / 合作推广</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于本站</h3>
+                <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.6;">
+                    本站致力于为漫画爱好者提供关于“日本漫画 无翼”及相关题材的资讯、指南与社区交流平台。我们关注现实题材与人物成长的魅力。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">分类索引</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">版权声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>相关资源</h3>
+                <ul>
+                    <li><a href="#">漫画APP下载</a></li>
+                    <li><a href="#">周边商城</a></li>
+                    <li><a href="#">创作者招募</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 日本漫画 无翼专题站. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
