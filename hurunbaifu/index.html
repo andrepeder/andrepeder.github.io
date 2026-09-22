@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="胡润百富榜2013名单查询，2013年中国富豪排行榜完整版，包含王健林、李彦宏、宗庆后等2013年上榜企业家详细财富数据、排名变化及行业分析。">
+    <meta name="keywords" content="胡润百富榜2013名单,2013中国富豪榜,王健林财富,李彦宏,宗庆后,2013胡润榜">
+    <title>胡润百富榜2013名单 - 2013年中国富豪排行榜完整数据</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #DAA520;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #5a0000);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--secondary-color);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+        }
+
+        /* Table Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #fafafa;
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-weight: bold;
+            background-color: #eee;
+        }
+
+        .rank-1 { background-color: #FFD700; color: #000; }
+        .rank-2 { background-color: #C0C0C0; color: #000; }
+        .rank-3 { background-color: #CD7F32; color: #000; }
+        .rank-up { color: green; margin-left: 5px; font-size: 0.8em; }
+        .rank-down { color: red; margin-left: 5px; font-size: 0.8em; }
+
+        .wealth-text {
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .company-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background-color: #eef2f5;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-card h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .list-group li {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .list-group li:last-child {
+            border-bottom: none;
+        }
+
+        .list-group a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Analysis Section */
+        .analysis-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .analysis-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .analysis-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .analysis-item p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Utility */
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: #660000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>财富档案</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">历年榜单</a></li>
+                <li><a href="#">行业分析</a></li>
+                <li><a href="#">关于胡润</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>胡润百富榜2013名单</h1>
+        <p>回顾2013年中国富豪版图，解读房地产与互联网行业的财富变迁。</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Statistics Overview -->
+    <section class="stats-bar">
+        <div class="stat-card">
+            <span class="stat-number">1,242</span>
+            <span class="stat-label">上榜企业家总数</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">1,000亿</span>
+            <span class="stat-label">上榜门槛（人民币）</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">9,50亿</span>
+            <span class="stat-label">上榜总财富</span>
+        </div>
+    </section>
+
+    <div class="main-layout">
+        <!-- Main Content: List -->
+        <main>
+            <div class="section-title">
+                <h2>2013年胡润百富榜TOP 10</h2>
+                <a href="#" class="btn">查看完整榜单</a>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="10%">排名</th>
+                            <th width="20%">姓名</th>
+                            <th width="20%">财富（亿元）</th>
+                            <th width="30%">主要行业/公司</th>
+                            <th width="20%">排名变化</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="rank-badge rank-1">1</span></td>
+                            <td><strong>王健林</strong><div class="company-tag">万达集团</div></td>
+                            <td class="wealth-text">1350</td>
+                            <td>房地产、文化娱乐</td>
+                            <td><span class="rank-up">↑ 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge rank-2">2</span></td>
+                            <td><strong>李彦宏</strong><div class="company-tag">百度</div></td>
+                            <td class="wealth-text">740</td>
+                            <td>互联网、搜索引擎</td>
+                            <td><span class="rank-up">↑ 2</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge rank-3">3</span></td>
+                            <td><strong>宗庆后</strong><div class="company-tag">娃哈哈</div></td>
+                            <td class="wealth-text">680</td>
+                            <td>饮料、食品</td>
+                            <td><span class="rank-up">↑ 3</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">4</span></td>
+                            <td><strong>马化腾</strong><div class="company-tag">腾讯</div></td>
+                            <td class="wealth-text">630</td>
+                            <td>互联网、社交</td>
+                            <td><span class="rank-up">↑ 4</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">5</span></td>
+                            <td><strong>梁稳根</strong><div class="company-tag">三一重工</div></td>
+                            <td class="wealth-text">580</td>
+                            <td>机械制造、工程机械</td>
+                            <td><span class="rank-down">↓ 2</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">6</span></td>
+                            <td><strong>张近东</strong><div class="company-tag">苏宁</div></td>
+                            <td class="wealth-text">540</td>
+                            <td>零售、连锁</td>
+                            <td><span class="rank-up">↑ 6</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">7</span></td>
+                            <td><strong>刘强东</strong><div class="company-tag">京东</div></td>
+                            <td class="wealth-text">520</td>
+                            <td>电子商务</td>
+                            <td><span class="rank-up">↑ 7</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">8</span></td>
+                            <td><strong>郭广昌</strong><div class="company-tag">复星国际</div></td>
+                            <td class="wealth-text">490</td>
+                            <td>投资、医药、地产</td>
+                            <td><span class="rank-up">↑ 8</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">9</span></td>
+                            <td><strong>王石</strong><div class="company-tag">万科</div></td>
+                            <td class="wealth-text">480</td>
+                            <td>房地产</td>
+                            <td><span class="rank-down">↓ 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">10</span></td>
+                            <td><strong>马云</strong><div class="company-tag">阿里巴巴</div></td>
+                            <td class="wealth-text">470</td>
+                            <td>电子商务、金融</td>
+                            <td><span class="rank-up">↑ 10</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-card">
+                <h3>榜单关键词</h3>
+                <ul class="list-group">
+                    <li><a href="#">房地产</a> <span>35%</span></li>
+                    <li><a href="#">互联网</a> <span>25%</span></li>
+                    <li><a href="#">制造业</a> <span>20%</span></li>
+                    <li><a href="#">零售</a> <span>10%</span></li>
+                    <li><a href="#">金融投资</a> <span>10%</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>年度焦点</h3>
+                <ul class="list-group">
+                    <li><a href="#">万达并购AMC</a></li>
+                    <li><a href="#">移动互联网爆发</a></li>
+                    <li><a href="#">奢侈品消费下滑</a></li>
+                    <li><a href="#">环保政策收紧</a></li>
+                    <li><a href="#">富豪移民话题</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Analysis Section -->
+    <section class="analysis-section">
+        <div class="section-title">
+            <h2>2013年财富趋势解读</h2>
+        </div>
+        <p>2013年是“新常态”下的财富分化之年。榜单显示，房地产巨头依然是财富的绝对主力，但随着移动互联网的崛起，科技新贵迅速上位。</p>
+        <div class="analysis-grid">
+            <div class="analysis-item">
+                <h4>房地产红利延续</h4>
+                <p>尽管调控政策频出，但王健林以1350亿元蝉联首富。万达在文化产业和商业地产上的布局使其在波动中保持了强劲的增长势头。</p>
+            </div>
+            <div class="analysis-item">
+                <h4>互联网新贵崛起</h4>
+                <p>百度、腾讯、京东、阿里巴巴等互联网企业财富总额大幅提升。移动互联网的普及改变了人们的生活方式，也造就了新的财富阶层。</p>
+            </div>
+            <div class="analysis-item">
+                <h4>制造业面临挑战</h4>
+                <p>受全球经济复苏乏力及国内产业升级影响，传统制造业富豪的财富增速放缓，部分企业排名出现下滑。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="margin-bottom: 3rem;">
+        <div class="section-title">
+            <h2>常见问题 (FAQ)</h2>
+        </div>
+        <div style="background: var(--card-bg); border-radius: 8px; padding: 2rem;">
+            <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600;">胡润百富榜的统计标准是什么？</summary>
+                <p style="margin-top: 0.5rem; color: var(--text-sub);">胡润百富榜主要依据企业家所持股份在公开市场的估值，以及非上市公司的资产评估。数据截止日期通常为每年的7月1日。</p>
+            </details>
+            <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600;">2013年的上榜门槛是多少？</summary>
+                <p style="margin-top: 0.5rem; color: var(--text-sub);">2013年的上榜门槛为1000亿元人民币，相比往年有所提高，反映了整体财富规模的扩大。</p>
+            </details>
+            <details style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                <summary style="cursor: pointer; font-weight: 600">富豪榜的数据来源是否公开透明？</summary>
+                <p style="margin-top: 0.5rem; color: var(--text-sub);">胡润研究院通过公开资料、公司财报及专家访谈等方式收集数据，力求准确反映当时的财富状况。</p>
+            </details>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">专注提供权威、及时的财富数据与行业分析，致力于成为连接企业家与投资者的桥梁。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">历年榜单</a></li>
+                    <li><a href="#">行业白皮书</a></li>
+                    <li><a href="#">胡润研究院</a></li>
+                    <li><a href="#">订阅周刊</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>邮箱：contact@wealthdata.com</li>
+                    <li>电话：400-123-4567</li>
+                    <li>地址：上海市浦东新区财富大道888号</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2013-2023 财富档案网. All Rights Reserved. 本页面数据仅供历史参考，不代表当前状态。
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
