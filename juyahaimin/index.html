@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巨牙海民 - 英雄资料库、出装攻略与实战指南</title>
+    <meta name="description" content="巨牙海民（Tusk）是Dota 2中的一位力量型英雄，擅长使用冰封雪走、雪球等技能进行强控与切入。本站提供巨牙海民的高清英雄立绘、技能介绍、出装推荐、符文天赋搭配及实战技巧解析。">
+    <meta name="keywords" content="巨牙海民, Dota2, Tusk, 冰封雪走, 雪球, 英雄攻略, 出装, 天赋">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00bfff;
+            --secondary-color: #1e3c72;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 450px;
+            background: url('https://picsum.photos/seed/tusk_hero/1600/900') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(30,60,114,0.9));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Skill Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .skill-body {
+            padding: 1.5rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .skill-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .skill-levels {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .level-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        /* Build Section */
+        .build-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .item-list {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-order {
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .item-name {
+            font-weight: bold;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.2rem;
+        }
+
+        .tips-section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .tips-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .tip-item {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .tip-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Guide/FAQ */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .guide-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .build-container {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+            .header-content {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span>⚓</span> Dota2 英雄百科
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">英雄介绍</a></li>
+                    <li><a href="#skills">技能详解</a></li>
+                    <li><a href="#build">出装推荐</a></li>
+                    <li><a href="#guide">实战指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>巨牙海民 Tusk</h1>
+            <p>用巨大的冰封雪走撕裂战场，将敌人无情地撞向队友，为团队创造完美的团战先手。</p>
+            <a href="#build" class="btn">查看出装与攻略</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">技能详解</h2>
+            <div class="skills-grid">
+                <!-- Skill 1 -->
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span>被动技能</span>
+                        <div class="skill-icon">1</div>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-name">冰封雪走</div>
+                        <p class="skill-desc">巨牙海民挥舞冰斧，向目标区域投掷一枚巨大的冰锥。冰锥落地后产生一道冰墙，阻挡敌人通过，并减速经过的敌人。</p>
+                        <div class="skill-levels">
+                            <div class="level-item"><span>等级 1</span> <span>造成 80 点伤害</span></div>
+                            <div class="level-item"><span>等级 2</span> <span>造成 160 点伤害</span></div>
+                            <div class="level-item"><span>等级 3</span> <span>造成 240 点伤害</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Skill 2 -->
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span>主动技能</span>
+                        <div class="skill-icon">2</div>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-name">雪球</div>
+                        <p class="skill-desc">巨牙海民将雪球向前滚动，撞到第一个敌方单位时停止。被撞到的敌人会被眩晕，并被雪球击飞至目标落点。雪球会随着滚动距离增加而变大，对沿途敌人造成伤害。</p>
+                        <div class="skill-levels">
+                            <div class="level-item"><span>等级 1</span> <span>基础眩晕 1.5 秒</span></div>
+                            <div class="level-item"><span>等级 2</span> <span>基础眩晕 2.0 秒</span></div>
+                            <div class="level-item"><span>等级 3</span> <span>基础眩晕 2.5 秒</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Skill 3 -->
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span>主动技能</span>
+                        <div class="skill-icon">3</div>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-name">穿刺</div>
+                        <p class="skill-desc">巨牙海民投掷冰斧，对目标区域造成伤害并减速。如果该斧头在 8 秒内击中英雄，巨牙海民将获得移动速度加成。</p>
+                        <div class="skill-levels">
+                            <div class="level-item"><span>等级 1</span> <span>造成 50 点伤害</span></div>
+                            <div class="level-item"><span>等级 2</span> <span>造成 100 点伤害</span></div>
+                            <div class="level-item"><span>等级 3</span> <span>造成 150 点伤害</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Ult -->
+                <article class="skill-card">
+                    <div class="skill-header">
+                        <span>大招</span>
+                        <div class="skill-icon">4</div>
+                    </div>
+                    <div class="skill-body">
+                        <div class="skill-name">巨浪</div>
+                        <p class="skill-desc">巨牙海民召唤一道巨大的海浪，对范围内所有敌方单位造成伤害。如果海浪中包含被雪球击飞的敌人，这些敌人将被眩晕更长时间。</p>
+                        <div class="skill-levels">
+                            <div class="level-item"><span>等级 1</span> <span>造成 150 点伤害</span></div>
+                            <div class="level-item"><span>等级 2</span> <span>造成 300 点伤害</span></div>
+                            <div class="level-item"><span>等级 3</span> <span>造成 450 点伤害</span></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Build Section -->
+        <section id="build">
+            <h2 class="section-title">出装推荐</h2>
+            <div class="build-container">
+                <div class="item-list">
+                    <h3>出门装</h3>
+                    <div class="item-row">
+                        <div class="item-order">1</div>
+                        <div>
+                            <div class="item-name">圆环</div>
+                            <div class="item-desc">属性提升，合成过渡</div>
+                        </div>
+                    </div>
+                    <div class="item-row">
+                        <div class="item-order">2</div>
+                        <div>
+                            <div class="item-name">力量手套</div>
+                            <div class="item-desc">增加生命值与力量</div>
+                        </div>
+                    </div>
+                    <div class="item-row">
+                        <div class="item-order">3</div>
+                        <div>
+                            <div class="item-name">净化药水</div>
+                            <div class="item-desc">解控保命，雪球突进必备</div>
+                        </div>
+                    </div>
+                    <div class="item-row">
+                        <div class="item-order">4</div>
+                        <div>
+                            <div class="item-name">树枝</div>
+                            <div class="item-desc">灵活补充属性</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-section">
+                    <h3>核心思路与技巧</h3>
+                    <div class="tip-item">
+                        <strong>先手开团神器</strong>
+                        巨牙海民的核心在于“雪球”。利用冰封雪走的冰墙封路，接雪球将敌方关键C位或脆皮英雄撞回己方队友身边，瞬间改变战局。
+                    </div>
+                    <div class="tip-item">
+                        <strong>冰墙的用法</strong>
+                        冰墙不仅可以用来封路分割战场，也可以用来保护自己或队友。注意冰墙的冷却时间，不要在没控制技能时轻易交出。
+                    </div>
+                    <div class="tip-item">
+                        <strong>大招时机</strong>
+                        巨浪是一个范围伤害技能，但在雪球中的人晕眩时间更长。尽量在大招生效范围内释放雪球，或者在大招命中雪球中的敌人时使用。
+                    </div>
+                    <div class="tip-item">
+                        <strong>视野控制</strong>
+                        投掷冰斧（穿刺）可以探查树林视野。在抓单或埋伏时，利用穿刺探草丛，防止被蹲。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide">
+            <h2 class="section-title">常见问题与玩法指南</h2>
+            <div class="guide-grid">
+                <article class="guide-card">
+                    <h3>定位分析</h3>
+                    <p>巨牙海民通常被定位为<strong>先手开团型英雄</strong>或<strong>功能性切入英雄</strong>。他缺乏强力的自保能力，因此需要辅助的保护，或者利用地形和道具进行突袭。</p>
+                    <ul class="guide-list">
+                        <li>适合顺风滚雪球</li>
+                        <li>适合打乱对方阵型</li>
+                        <li>不适合单带牵制</li>
+                    </ul>
+                </article>
+
+                <article class="guide-card">
+                    <h3>天赋加点建议</h3>
+                    <ul class="guide-list">
+                        <li><strong>10级：</strong>通常选择增加攻击力或减少冷却时间，视局势而定。</li>
+                        <li><strong>15级：</strong>选择增加护甲或减少冰封雪走冷却，生存能力优先。</li>
+                        <li><strong>20级：</strong>选择增加雪球眩晕时间或攻击速度，强化核心机制。</li>
+                        <li><strong>25级：</strong>选择增加移动速度或穿刺伤害，提升机动性或爆发。</li>
+                    </ul>
+                </article>
+
+                <article class="guide-card">
+                    <h3>克制关系</h3>
+                    <ul class="guide-list">
+                        <li><strong>克制：</strong>拥有位移技能的英雄（如幽鬼、幻影刺客）较难被雪球命中。</li>
+                        <li><strong>被克制：</strong>拥有沉默或真实伤害的英雄（如蓝猫、宙斯）会让巨牙海民无法发挥作用。</li>
+                        <li>注意躲避对方控制技能，防止在雪球飞行中被打断。</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Dota2 英雄百科 - 巨牙海民专题页</p>
+            <p>本页面仅供游戏资料参考，内容基于游戏版本更新整理。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
