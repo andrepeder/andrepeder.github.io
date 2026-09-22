@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联盟盒子-聚合全网影视与软件资源的一站式管理平台</title>
+    <meta name="description" content="联盟盒子提供海量正版影视资源聚合、高清电影电视剧在线观看、各类实用软件下载及使用教程。支持多平台同步，操作简单，资源丰富，是您数字生活的好帮手。">
+    <meta name="keywords" content="联盟盒子,影视聚合,软件下载,在线观看,资源管理">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 6px;
+            padding: 4px 12px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            padding: 4px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-sub);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #d97706;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: 40px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* Resource Grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            background-color: #e2e8f0;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-sub);
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+        }
+
+        .card-btn {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .card-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* Software List Section */
+        .software-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .software-item {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        .software-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .software-icon {
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 20px;
+            color: var(--text-sub);
+            flex-shrink: 0;
+        }
+
+        .software-info {
+            flex: 1;
+        }
+
+        .software-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .software-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .software-btn {
+            padding: 6px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav {
+                margin-top: 12px;
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            nav ul {
+                gap: 16px;
+                padding-bottom: 4px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin-top: 12px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .software-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .software-btn {
+                width: 100%;
+                text-align: center;
+                margin-top: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>联盟盒子</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#movies">影视大全</a></li>
+                    <li><a href="#software">软件工具</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索电影、软件或教程...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>聚合全网资源，畅享数字生活</h1>
+                <p>联盟盒子为您提供海量正版影视内容、实用软件下载及详细的使用教程。一站式管理您的数字娱乐与生产力工具。</p>
+                <div class="cta-group">
+                    <a href="#movies" class="btn btn-primary">立即浏览</a>
+                    <a href="#software" class="btn btn-outline">下载中心</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlights -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎬</div>
+                        <h3 class="feature-title">海量影视资源</h3>
+                        <p class="feature-text">收录最新热门电影、经典电视剧及动漫番剧，高清画质，更新及时。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛠️</div>
+                        <h3 class="feature-title">精选软件工具</h3>
+                        <p class="feature-text">提供各类实用软件下载，涵盖效率、设计、开发及娱乐领域，安全无毒。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📖</div>
+                        <h3 class="feature-title">详细使用教程</h3>
+                        <p class="feature-text">针对热门软件提供图文及视频教程，帮助您快速上手，解决使用难题。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movie & TV Section -->
+        <section id="movies" class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门影视推荐</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="resource-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/movie1/400/250" alt="科幻电影海报">
+                        <span class="card-tag">电影</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">星际穿越：重映版</h3>
+                        <p class="card-desc">诺兰导演的科幻巨作，讲述人类在地球环境恶化后，通过虫洞寻找新家园的冒险故事。</p>
+                        <div class="card-footer">
+                            <span>2023-10-15</span>
+                            <a href="#" class="card-btn">在线观看</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/tv1/400/250" alt="电视剧海报">
+                        <span class="card-tag">剧集</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">迷雾追踪 第二季</h3>
+                        <p class="card-desc">一部扣人心弦的悬疑剧，讲述侦探团队在迷雾笼罩的城市中，揭开连环犯罪真相的过程。</p>
+                        <div class="card-footer">
+                            <span>2023-10-18</span>
+                            <a href="#" class="card-btn">在线观看</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/anime1/400/250" alt="动漫海报">
+                        <span class="card-tag">动漫</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">夏日重现 动画版</h3>
+                        <p class="card-desc">充满悬疑与超能力的夏日物语，主角回到故乡后卷入了时间循环的怪异事件。</p>
+                        <div class="card-footer">
+                            <span>2023-10-20</span>
+                            <a href="#" class="card-btn">在线观看</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/docu1/400/250" alt="纪录片海报">
+                        <span class="card-tag">纪录片</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">地球脉动 III</h3>
+                        <p class="card-desc">BBC史诗级自然纪录片，带您领略地球上最壮丽的自然景观和野生动物的生存智慧。</p>
+                        <div class="card-footer">
+                            <span>2023-10-22</span>
+                            <a href="#" class="card-btn">在线观看</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Software Section -->
+        <section id="software" class="container">
+            <div class="section-header">
+                <h2 class="section-title">实用软件下载</h2>
+                <a href="#" class="view-all">软件库 &rarr;</a>
+            </div>
+            <div class="software-list">
+                <div class="software-item">
+                    <div class="software-icon">💻</div>
+                    <div class="software-info">
+                        <div class="software-name">TeamViewer 远程控制</div>
+                        <div class="software-meta">系统工具 | 版本 15.41 | 大小 35MB | Windows / Mac</div>
+                    </div>
+                    <a href="#" class="software-btn">立即下载</a>
+                </div>
+                <div class="software-item">
+                    <div class="software-icon">🎨</div>
+                    <div class="software-info">
+                        <div class="software-name">GIMP 图像处理</div>
+                        <div class="software-meta">设计工具 | 版本 2.10.34 | 大小 300MB | Windows / Linux</div>
+                    </div>
+                    <a href="#" class="software-btn">立即下载</a>
+                </div>
+                <div class="software-item">
+                    <div class="software-icon">🔒</div>
+                    <div class="software-info">
+                        <div class="software-name">Bitwarden 密码管理器</div>
+                        <div class="software-meta">安全隐私 | 版本 2023.5 | 大小 45MB | 全平台</div>
+                    </div>
+                    <a href="#" class="software-btn">立即下载</a>
+                </div>
+                <div class="software-item">
+                    <div class="software-icon">📝</div>
+                    <div class="software-info">
+                        <div class="software-name">Typora Markdown 编辑器</div>
+                        <div class="software-meta">效率办公 | 版本 1.5.0 | 大小 60MB | Mac / Windows</div>
+                    </div>
+                    <a href="#" class="software-btn">立即下载</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="guide" class="faq-section">
+            <div class="container faq-container">
+                <div class="section-header" style="justify-content: center;">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">联盟盒子里的资源都是免费的吗？</div>
+                    <div class="faq-answer">联盟盒子致力于提供优质资源。部分影视内容采用聚合展示，部分可能需要第三方平台支持；软件下载均为官方或开源版本，无捆绑广告。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的软件安全吗？会有病毒吗？</div>
+                    <div class="faq-answer">我们提供的软件均经过人工审核，确保来源可靠。建议用户在下载后使用杀毒软件进行扫描，以获得更安全的体验。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何获取软件的使用教程？</div>
+                    <div class="faq-answer">在软件列表页面，点击软件名称通常会跳转到详细介绍页，其中包含图文教程或相关视频指南。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>联盟盒子</h3>
+                    <p>连接数字世界，让资源获取更简单。我们专注于为用户提供高质量的影视与软件服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源分类</h4>
+                    <ul>
+                        <li><a href="#">高清电影</a></li>
+                        <li><a href="#">电视剧集</a></li>
+                        <li><a href="#">效率软件</a></li>
+                        <li><a href="#">设计工具</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">用户反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 联盟盒子 版权所有. 本站内容仅供学习交流使用，请支持正版软件与影视作品。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion Logic
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
