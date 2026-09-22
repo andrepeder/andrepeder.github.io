@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大洼二手房出售平台，提供大洼区最新二手房房源信息、价格走势、购房指南及小区评测。专注本地房产交易，助您轻松找到理想家园。">
+    <meta name="keywords" content="大洼二手房出售,大洼二手房,盘锦二手房,房产交易,房屋出售">
+    <title>大洼二手房出售-本地房源精选与购房指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c6e49;
+            --secondary-color: #4a9b6e;
+            --accent-color: #e6b800;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(44, 110, 73, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: inline-flex;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0 24px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-bar button {
+            background-color: var(--accent-color);
+            color: #333;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #d4a800;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .filter-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .filter-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .price-range input {
+            width: 100%;
+        }
+
+        /* Content Area */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .content-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .sort-options select {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: var(--text-light);
+        }
+
+        /* House Grid */
+        .house-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .house-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .house-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .house-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .house-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .house-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        .house-info {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .house-price {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .house-price small {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .house-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .house-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .house-address {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .house-actions {
+            padding: 16px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-block {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            aside {
+                position: static;
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 12px;
+            }
+            nav ul {
+                margin: 12px 0;
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>大洼房产网</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">二手房出售</a></li>
+                    <li><a href="#">二手房求购</a></li>
+                    <li><a href="#">租房资讯</a></li>
+                    <li><a href="#">学区查询</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">发布房源</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>大洼二手房出售</h1>
+        <p>专业提供大洼区最新二手房房源信息，真实可靠，助您轻松安家。</p>
+        <div class="search-bar">
+            <input type="text" placeholder="输入小区名称、街道或商圈...">
+            <button>搜索房源</button>
+        </div>
+    </section>
+
+    <div class="container">
+        <aside>
+            <div class="filter-card">
+                <div class="filter-title">筛选条件</div>
+                
+                <div class="filter-group">
+                    <label>房源类型</label>
+                    <select>
+                        <option>全部类型</option>
+                        <option>普通住宅</option>
+                        <option>别墅</option>
+                        <option>商铺</option>
+                        <option>公寓</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>户型</label>
+                    <select>
+                        <option>不限</option>
+                        <option>1室</option>
+                        <option>2室</option>
+                        <option>3室</option>
+                        <option>4室及以上</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>价格范围 (万元)</label>
+                    <div class="price-range">
+                        <input type="number" placeholder="最低价">
+                        <span>-</span>
+                        <input type="number" placeholder="最高价">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>面积 (㎡)</label>
+                    <select>
+                        <option>不限</option>
+                        <option>60以下</option>
+                        <option>60-90</option>
+                        <option>90-120</option>
+                        <option>120以上</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>朝向</label>
+                    <select>
+                        <option>不限</option>
+                        <option>南</option>
+                        <option>东南</option>
+                        <option>东</option>
+                        <option>北</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary btn-block" style="width: 100%;">确定筛选</button>
+            </div>
+
+            <div class="filter-card">
+                <div class="filter-title">最新成交</div>
+                <ul style="font-size: 0.9rem; color: #666;">
+                    <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">
+                        <span style="color: var(--primary-color); font-weight: bold;">¥85万</span> <br>
+                        <span>东风镇 轻工小区 2室1厅</span>
+                    </li>
+                    <li style="margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px;">
+                        <span style="color: var(--primary-color); font-weight: bold;">¥120万</span> <br>
+                        <span>田家镇 新兴小区 3室2厅</span>
+                    </li>
+                    <li>
+                        <span style="color: var(--primary-color); font-weight: bold;">¥65万</span> <br>
+                        <span>荣兴镇 滨海花园 1室1厅</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="content-header">
+                <h2>大洼热门二手房出售</h2>
+                <div class="sort-options">
+                    <select>
+                        <option>最新发布</option>
+                        <option>价格从低到高</option>
+                        <option>价格从高到低</option>
+                        <option>面积从大到小</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="house-grid">
+                <!-- House Card 1 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="大洼某小区房源">
+                        <span class="house-tag">急售</span>
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥128万 <small>单价: 6400元/㎡</small></div>
+                        <h3 class="house-title">大洼区田家镇 紫园小区 3室2厅 南北通透</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 89㎡</span>
+                            <span class="meta-item">🛏️ 3室1厅</span>
+                            <span class="meta-item">🚿 2卫</span>
+                            <span class="meta-item">🏢 中层/共12层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区田家镇紫园小区 3号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+
+                <!-- House Card 2 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="大洼某小区房源">
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥98万 <small>单价: 5900元/㎡</small></div>
+                        <h3 class="house-title">大洼区荣兴镇 滨海花园 2室1厅 精装修</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 120㎡</span>
+                            <span class="meta-item">🛏️ 2室1厅</span>
+                            <span class="meta-item">🚿 1卫</span>
+                            <span class="meta-item">🏢 低层/共6层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区荣兴镇滨海花园 8号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+
+                <!-- House Card 3 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="大洼某小区房源">
+                        <span class="house-tag">满五唯一</span>
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥145万 <small>单价: 6800元/㎡</small></div>
+                        <h3 class="house-title">大洼区东风镇 城市花园 3室2厅 高楼层</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 107㎡</span>
+                            <span class="meta-item">🛏️ 3室2厅</span>
+                            <span class="meta-item">🚿 2卫</span>
+                            <span class="meta-item">🏢 高层/共28层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区东风镇城市花园 15号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+
+                <!-- House Card 4 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="大洼某小区房源">
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥78万 <small>单价: 5200元/㎡</small></div>
+                        <h3 class="house-title">大洼区新立镇 幸福里 1室1厅 简装</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 60㎡</span>
+                            <span class="meta-item">🛏️ 1室1厅</span>
+                            <span class="meta-item">🚿 1卫</span>
+                            <span class="meta-item">🏢 中层/共18层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区新立镇幸福里 5号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+
+                <!-- House Card 5 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house5/400/300" alt="大洼某小区房源">
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥210万 <small>单价: 7000元/㎡</small></div>
+                        <h3 class="house-title">大洼区辽东湾新区 滨海国际 4室2厅 大平层</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 300㎡</span>
+                            <span class="meta-item">🛏️ 4室2厅</span>
+                            <span class="meta-item">🚿 3卫</span>
+                            <span class="meta-item">🏢 高层/共32层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区辽东湾新区滨海国际 1号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+
+                <!-- House Card 6 -->
+                <article class="house-card">
+                    <div class="house-img">
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="大洼某小区房源">
+                    </div>
+                    <div class="house-info">
+                        <div class="house-price">¥110万 <small>单价: 5500元/㎡</small></div>
+                        <h3 class="house-title">大洼区西安镇 中心广场 2室1厅 临近学校</h3>
+                        <div class="house-meta">
+                            <span class="meta-item">🏠 95㎡</span>
+                            <span class="meta-item">🛏️ 2室1厅</span>
+                            <span class="meta-item">🚿 1卫</span>
+                            <span class="meta-item">🏢 低层/共9层</span>
+                        </div>
+                        <div class="house-address">📍 地址：大洼区西安镇中心广场 2号楼</div>
+                    </div>
+                    <div class="house-actions">
+                        <button class="btn btn-outline btn-block">预约看房</button>
+                        <button class="btn btn-outline btn-block">联系业主</button>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline">加载更多房源</button>
+            </div>
+        </main>
+    </div>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">房源真实</h3>
+                <p class="feature-desc">严格审核业主身份与房产证，杜绝虚假房源。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🤝</div>
+                <h3 class="feature-title">专业中介</h3>
+                <p class="feature-desc">本地资深经纪人团队，提供一对一购房指导。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">资金安全</h3>
+                <p class="feature-desc">官方资金监管服务，保障交易资金安全。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚖️</div>
+                <h3 class="feature-title">法律保障</h3>
+                <p class="feature-desc">正规合同模板，规避交易风险，保障权益。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 1.8rem;">购房常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">大洼二手房交易流程是怎样的？ <span>+</span></div>
+                <div class="faq-answer">
+                    大洼二手房交易通常包括：签订购房合同、支付定金、办理过户手续、缴纳相关税费、物业交割、领取新房产证等步骤。建议在专业中介陪同下完成。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">二手房交易税费主要由谁承担？ <span>+</span></div>
+                <div class="faq-answer">
+                    二手房税费通常包括契税、个人所得税、增值税及附加等。具体承担方需根据当地政策及买卖双方协商约定，通常由买方承担契税，卖方承担个人所得税和增值税（视满五唯一情况而定）。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何查询大洼区学区划分？ <span>+</span></div>
+                <div class="faq-answer">
+                    学区划分每年可能会有微调，建议您拨打大洼区教育局电话或咨询学校招生办获取最新官方学区划分信息，购房前务必核实。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">看房需要注意哪些细节？ <span>+</span></div>
+                <div class="faq-answer">
+                    建议重点关注房屋结构、采光通风、噪音情况、周边配套设施以及物业服务质量。同时，务必核实房屋产权是否清晰，有无抵押或查封情况。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>大洼房产网</h3>
+                <p style="font-size: 0.9rem; line-height: 1.8; color: #999;">
+                    专注大洼区房产交易服务，致力于为本地居民提供真实、便捷的二手房出售与求购信息。让每一次安家都安心无忧。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>房源分类</h4>
+                <ul>
+                    <li><a href="#">普通住宅</a></li>
+                    <li><a href="#">别墅豪宅</a></li>
+                    <li><a href="#">商铺写字楼</a></li>
+                    <li><a href="#">出租房源</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>购房指南</h4>
+                <ul>
+                    <li><a href="#">购房流程</a></li>
+                    <li><a href="#">税费计算</a></li>
+                    <li><a href="#">贷款政策</a></li>
+                    <li><a href="#">交易风险</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>客服热线：0427-XXXXXXX</li>
+                    <li>工作时间：周一至周日 9:00-18:00</li>
+                    <li>邮箱：service@dlfang.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 大洼房产网 版权所有 | 辽ICP备XXXXXXXX号</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const icon = item.querySelector('span');
+                icon.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Mobile Menu Toggle (Optional enhancement for very small screens)
+        const headerContainer = document.querySelector('.header-container');
+        const navUl = document.querySelector('nav ul');
+        
+        // Basic responsive behavior for nav on mobile
+        if (window.innerWidth <= 600) {
+            // In a real app, you might toggle a hamburger menu class here
+            // For this static showcase, we ensure flex-wrap handles overflow gracefully
+        }
+    </script>
+</body>
+                          </html>
